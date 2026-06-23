@@ -72,6 +72,19 @@ def compute_slice_metrics(
     """
     Computes model performance metrics on slices of the data for each categorical feature.
     Writes results to a text file.
+    Inputs
+    ------
+    data : test data from train, test split
+    categorical features: list of categorical features
+    model: trained model
+    encoder:trained encoder
+    lb: trained label binarizer
+    output_path: path to save output text file
+    
+    Returns
+    -------
+    text file: txt file located root/starter/model/
+        Metrics from sliced categortical groups.
     """
 
     with open(output_path, "w") as f:
