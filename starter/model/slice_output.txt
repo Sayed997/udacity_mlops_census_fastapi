@@ -1,0 +1,115 @@
+Feature: workclass
+  workclass = Private | Precision: 0.7453, Recall: 0.6344, Fbeta: 0.6854
+  workclass = State-gov | Precision: 0.7761, Recall: 0.7123, Fbeta: 0.7429
+  workclass = Self-emp-not-inc | Precision: 0.7075, Recall: 0.4777, Fbeta: 0.5703
+  workclass = Self-emp-inc | Precision: 0.7672, Recall: 0.7542, Fbeta: 0.7607
+  workclass = Federal-gov | Precision: 0.7910, Recall: 0.7571, Fbeta: 0.7737
+  workclass = Local-gov | Precision: 0.7573, Recall: 0.7091, Fbeta: 0.7324
+  workclass = ? | Precision: 0.7083, Recall: 0.4048, Fbeta: 0.5152
+  workclass = Without-pay | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+
+Feature: education
+  education = Some-college | Precision: 0.7005, Recall: 0.5235, Fbeta: 0.5992
+  education = HS-grad | Precision: 0.6637, Recall: 0.4348, Fbeta: 0.5254
+  education = Bachelors | Precision: 0.7599, Recall: 0.7244, Fbeta: 0.7418
+  education = Masters | Precision: 0.8255, Recall: 0.8454, Fbeta: 0.8353
+  education = Assoc-acdm | Precision: 0.7179, Recall: 0.5957, Fbeta: 0.6512
+  education = 7th-8th | Precision: 0.0000, Recall: 0.0000, Fbeta: 0.0000
+  education = 11th | Precision: 1.0000, Recall: 0.2727, Fbeta: 0.4286
+  education = Assoc-voc | Precision: 0.6667, Recall: 0.5397, Fbeta: 0.5965
+  education = Prof-school | Precision: 0.8125, Recall: 0.9286, Fbeta: 0.8667
+  education = 9th | Precision: 1.0000, Recall: 0.3333, Fbeta: 0.5000
+  education = 5th-6th | Precision: 1.0000, Recall: 0.5000, Fbeta: 0.6667
+  education = 10th | Precision: 0.4000, Recall: 0.1667, Fbeta: 0.2353
+  education = Doctorate | Precision: 0.8689, Recall: 0.9298, Fbeta: 0.8983
+  education = 12th | Precision: 1.0000, Recall: 0.4000, Fbeta: 0.5714
+  education = 1st-4th | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  education = Preschool | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+
+Feature: marital-status
+  marital-status = Divorced | Precision: 0.7872, Recall: 0.3592, Fbeta: 0.4933
+  marital-status = Married-civ-spouse | Precision: 0.7406, Recall: 0.6877, Fbeta: 0.7132
+  marital-status = Never-married | Precision: 0.8302, Recall: 0.4272, Fbeta: 0.5641
+  marital-status = Separated | Precision: 1.0000, Recall: 0.4211, Fbeta: 0.5926
+  marital-status = Widowed | Precision: 1.0000, Recall: 0.1579, Fbeta: 0.2727
+  marital-status = Married-spouse-absent | Precision: 1.0000, Recall: 0.2500, Fbeta: 0.4000
+  marital-status = Married-AF-spouse | Precision: 1.0000, Recall: 0.0000, Fbeta: 0.0000
+
+Feature: occupation
+  occupation = Adm-clerical | Precision: 0.6528, Recall: 0.4896, Fbeta: 0.5595
+  occupation = Exec-managerial | Precision: 0.7984, Recall: 0.7481, Fbeta: 0.7724
+  occupation = Machine-op-inspct | Precision: 0.5758, Recall: 0.4043, Fbeta: 0.4750
+  occupation = Craft-repair | Precision: 0.6794, Recall: 0.4917, Fbeta: 0.5705
+  occupation = Prof-specialty | Precision: 0.7859, Recall: 0.7679, Fbeta: 0.7768
+  occupation = Sales | Precision: 0.7384, Recall: 0.6615, Fbeta: 0.6978
+  occupation = Handlers-cleaners | Precision: 0.6667, Recall: 0.3333, Fbeta: 0.4444
+  occupation = Other-service | Precision: 0.8333, Recall: 0.1923, Fbeta: 0.3125
+  occupation = Protective-serv | Precision: 0.7500, Recall: 0.5714, Fbeta: 0.6486
+  occupation = Priv-house-serv | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  occupation = Transport-moving | Precision: 0.6136, Recall: 0.4219, Fbeta: 0.5000
+  occupation = ? | Precision: 0.7083, Recall: 0.4048, Fbeta: 0.5152
+  occupation = Farming-fishing | Precision: 0.5000, Recall: 0.1786, Fbeta: 0.2632
+  occupation = Tech-support | Precision: 0.7347, Recall: 0.7059, Fbeta: 0.7200
+  occupation = Armed-Forces | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+
+Feature: relationship
+  relationship = Not-in-family | Precision: 0.8105, Recall: 0.4096, Fbeta: 0.5442
+  relationship = Wife | Precision: 0.7239, Recall: 0.6783, Fbeta: 0.7004
+  relationship = Husband | Precision: 0.7424, Recall: 0.6897, Fbeta: 0.7151
+  relationship = Unmarried | Precision: 0.9231, Recall: 0.2667, Fbeta: 0.4138
+  relationship = Own-child | Precision: 1.0000, Recall: 0.1765, Fbeta: 0.3000
+  relationship = Other-relative | Precision: 1.0000, Recall: 0.3750, Fbeta: 0.5455
+
+Feature: race
+  race = White | Precision: 0.7483, Recall: 0.6352, Fbeta: 0.6871
+  race = Black | Precision: 0.7308, Recall: 0.5846, Fbeta: 0.6496
+  race = Other | Precision: 1.0000, Recall: 0.6667, Fbeta: 0.8000
+  race = Asian-Pac-Islander | Precision: 0.7759, Recall: 0.7258, Fbeta: 0.7500
+  race = Amer-Indian-Eskimo | Precision: 0.5556, Recall: 0.5000, Fbeta: 0.5263
+
+Feature: sex
+  sex = Female | Precision: 0.7284, Recall: 0.5064, Fbeta: 0.5975
+  sex = Male | Precision: 0.7511, Recall: 0.6584, Fbeta: 0.7017
+
+Feature: native-country
+  native-country = United-States | Precision: 0.7463, Recall: 0.6293, Fbeta: 0.6828
+  native-country = Mexico | Precision: 1.0000, Recall: 0.3333, Fbeta: 0.5000
+  native-country = Puerto-Rico | Precision: 0.8333, Recall: 0.8333, Fbeta: 0.8333
+  native-country = El-Salvador | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = ? | Precision: 0.7241, Recall: 0.6774, Fbeta: 0.7000
+  native-country = Columbia | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Poland | Precision: 0.6667, Recall: 1.0000, Fbeta: 0.8000
+  native-country = Cambodia | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Germany | Precision: 0.8182, Recall: 0.6923, Fbeta: 0.7500
+  native-country = Philippines | Precision: 1.0000, Recall: 0.6875, Fbeta: 0.8148
+  native-country = Canada | Precision: 0.7778, Recall: 0.8750, Fbeta: 0.8235
+  native-country = Ecuador | Precision: 1.0000, Recall: 0.5000, Fbeta: 0.6667
+  native-country = Italy | Precision: 0.7500, Recall: 0.7500, Fbeta: 0.7500
+  native-country = Cuba | Precision: 0.6667, Recall: 0.8000, Fbeta: 0.7273
+  native-country = Iran | Precision: 0.3333, Recall: 0.2000, Fbeta: 0.2500
+  native-country = Jamaica | Precision: 0.0000, Recall: 1.0000, Fbeta: 0.0000
+  native-country = Haiti | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = South | Precision: 0.3333, Recall: 0.5000, Fbeta: 0.4000
+  native-country = Taiwan | Precision: 0.8000, Recall: 1.0000, Fbeta: 0.8889
+  native-country = Dominican-Republic | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Ireland | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Japan | Precision: 0.7500, Recall: 0.7500, Fbeta: 0.7500
+  native-country = Scotland | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = India | Precision: 0.8750, Recall: 0.8750, Fbeta: 0.8750
+  native-country = Trinadad&Tobago | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Hungary | Precision: 1.0000, Recall: 0.5000, Fbeta: 0.6667
+  native-country = England | Precision: 0.6667, Recall: 0.5000, Fbeta: 0.5714
+  native-country = Laos | Precision: 1.0000, Recall: 0.0000, Fbeta: 0.0000
+  native-country = Hong | Precision: 0.5000, Recall: 1.0000, Fbeta: 0.6667
+  native-country = Greece | Precision: 0.0000, Recall: 0.0000, Fbeta: 0.0000
+  native-country = Portugal | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Guatemala | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = China | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = France | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Nicaragua | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Vietnam | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Thailand | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Peru | Precision: 0.0000, Recall: 0.0000, Fbeta: 0.0000
+  native-country = Honduras | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+  native-country = Yugoslavia | Precision: 1.0000, Recall: 1.0000, Fbeta: 1.0000
+

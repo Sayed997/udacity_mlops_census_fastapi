@@ -1,5 +1,6 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
+from ml.data import process_data
 
 def train_model(X_train, y_train):
     """
@@ -63,3 +64,44 @@ def inference(model, X):
         Predictions from the model.
     """
     return model.predict(X)
+
+# Sliced metrics on categorical groups
+def compute_slice_metrics(
+    data, categorical_features, model, encoder, lb, output_path="slice_output.txt"
+):
+    """
+    Computes model performance metrics on slices of the data for each categorical feature.
+    Writes results to a text file.
+    """
+
+    with open(output_path, "w") as f:
+        for feature in categorical_features:
+            f.write(f"Feature: {feature}\n")
+            values = data[feature].unique()
+
+            for val in values:
+                slice_df = data[data[feature] == val]
+
+                if slice_df.empty:
+                    continue
+
+                X_slice, y_slice, _, _ = process_data(
+                    slice_df,
+                    categorical_features=categorical_features,
+                    label="salary",
+                    training=False,
+                    encoder=encoder,
+                    lb=lb,
+                )
+
+                preds = inference(model, X_slice)
+                precision, recall, fbeta = compute_model_metrics(y_slice, preds)
+
+                f.write(
+                    f"  {feature} = {val} | "
+                    f"Precision: {precision:.4f}, "
+                    f"Recall: {recall:.4f}, "
+                    f"Fbeta: {fbeta:.4f}\n"
+                )
+
+            f.write("\n")

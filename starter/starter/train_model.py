@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 import pickle
 
 from ml.data import process_data
-from ml.model import train_model, compute_model_metrics, inference
+from ml.model import train_model, compute_model_metrics, inference, compute_slice_metrics
 
 # Add code to load in the data.
 # Load cleaned census data
@@ -54,6 +54,7 @@ precision, recall, fbeta = compute_model_metrics(y_test, preds)
 
 
 
+
 with open("../model/model.pkl", "wb") as f:
     pickle.dump(model, f)
 
@@ -62,3 +63,12 @@ with open("../model/encoder.pkl", "wb") as f:
 
 with open("../model/lb.pkl", "wb") as f:
     pickle.dump(lb, f)
+
+compute_slice_metrics(
+    test,
+    categorical_features=cat_features,
+    model=model,
+    encoder=encoder,
+    lb=lb,
+    output_path="../model/slice_output.txt"
+)
