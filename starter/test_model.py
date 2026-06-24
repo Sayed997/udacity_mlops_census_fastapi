@@ -19,6 +19,7 @@ cat_features = [
 FILE_DIR = os.path.dirname(__file__)
 DATA_PATH = os.path.join(FILE_DIR, "data", "census.csv")
 
+
 def test_process_data_training():
 
     # Test process_data function outputs
