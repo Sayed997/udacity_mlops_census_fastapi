@@ -11,6 +11,38 @@ Working in a command line environment is recommended for ease of use with git an
     * Download and install conda if you don't have it already.
     * conda create -n [envname] "python=3.13" scikit-learn pandas numpy pytest jupyter jupyterlab fastapi uvicorn pydantic httpx matplotlib seaborn -c conda-forge
     * Install git either through conda ("conda install git") or through your CLI, e.g. sudo apt-get git.
+-----------------------------------
+
+# Running Instructions for completed project from the command line (training model and API spin up)
+This project uses a Python package structure, so all commands must be run from the project root directory:
+Install dependencies after environment setup: `pip install -r requirements.txt`
+
+**Train the Model**: 
+ - Run the training script from the project root:
+ - `python -m starter.starter.train_model`
+This will:
+ - load starter/data/census.csv
+
+ - preprocess the data
+
+ - train the model
+
+ - save the artifacts to `starter/model`
+**Run the FastAPI app**
+
+ - Run from the project root
+ - Access app through URL provided (ctrl click)
+`uvicorn starter.main:app --reload`
+The app includes:
+`app = FastAPI(root_path="/proxy/8000")` to support the Udacity workspace proxy.
+
+**Run Tests (test_main.py and test_model.py located at starter/**
+ - Run from the project root
+ `pytest -q`
+
+## Model Card located at starter/mode_card.md
+
+--------------------------------------
 
 ## Repositories
 * Create a directory for the project and initialize git.
