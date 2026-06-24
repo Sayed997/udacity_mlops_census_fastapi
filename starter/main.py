@@ -78,7 +78,7 @@ cat_features = [
     "native-country",
 ]
 
-app = FastAPI()
+app = FastAPI(root_path="/proxy/8000")
 
 
 @app.get("/")
