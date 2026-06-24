@@ -2,6 +2,7 @@ from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
 from starter.ml.data import process_data
 
+
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -66,6 +67,8 @@ def inference(model, X):
     return model.predict(X)
 
 # Sliced metrics on categorical groups
+
+
 def compute_slice_metrics(
     data, categorical_features, model, encoder, lb, output_path="slice_output.txt"
 ):

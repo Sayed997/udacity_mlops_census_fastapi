@@ -1,18 +1,19 @@
 from fastapi.testclient import TestClient
 from main import app
-import requests
 
 
 client = TestClient(app)
 
+
 def test_get_root():
+
     # simple get request test
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "Welcome to the Census Income prediction API"}
 
-# to test the predict endpoint we can test using a high paying and low paying observation
 
+# to test the predict endpoint we can test using a high paying and low paying observation
 payload_low = {
     "age": 25,
     "fnlgt": 226802,
@@ -49,14 +50,16 @@ payload_high = {
 
 
 def test_post_predict_low_income():
-    #test predict output of low income obervation
+
+    # test predict output of low income obervation
     response = client.post("/predict", json=payload_low)
     assert response.status_code == 200
     assert response.json()["prediction"] == "<=50K"
 
 
 def test_post_predict_high_income():
-    #test predict output of high income obervation
+
+    # test predict output of high income obervation
     response = client.post("/predict", json=payload_high)
     assert response.status_code == 200
     assert response.json()["prediction"] == ">50K"

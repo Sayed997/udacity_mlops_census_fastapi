@@ -20,7 +20,6 @@ with open("model/lb.pkl", "rb") as f:
     lb = pickle.load(f)
 
 
-
 # Add pydantic class to prcess API input
 class CensusInput(BaseModel):
     age: int
@@ -48,7 +47,7 @@ class CensusInput(BaseModel):
                 "education": "Bachelors",
                 "marital-status": "Never-married",
                 "occupation": "Adm-clerical",
-                "relationship":"Not-in-family",
+                "relationship": "Not-in-family",
                 "race": "White",
                 "sex": "Male",
                 "education-num": 13,
@@ -59,8 +58,10 @@ class CensusInput(BaseModel):
             }
         }
 
-#Categorical feature list
+
+# Categorical feature list
 cat_features = [
+
     "workclass",
     "education",
     "marital-status",
@@ -76,7 +77,9 @@ app = FastAPI()
 
 @app.get("/")
 def read_root() -> dict:
+
     return {"message": "Welcome to the Census Income prediction API"}
+
 
 @app.post("/predict")
 def predict(input_data: CensusInput) -> dict:

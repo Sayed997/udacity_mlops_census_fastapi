@@ -27,7 +27,7 @@ cat_features = [
     "native-country",
 ]
 
-#process data with pipeline
+# process data with pipeline
 X_train, y_train, encoder, lb = process_data(
     train, categorical_features=cat_features, label="salary", training=True
 )
@@ -51,9 +51,6 @@ preds = inference(model, X_test)
 
 # Evaluation metrics
 precision, recall, fbeta = compute_model_metrics(y_test, preds)
-
-
-
 
 with open("../model/model.pkl", "wb") as f:
     pickle.dump(model, f)
