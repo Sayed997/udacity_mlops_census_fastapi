@@ -15,15 +15,29 @@ MODEL_PATH = os.path.join(FILE_DIR, "model", "model.pkl")
 ENCODER_PATH = os.path.join(FILE_DIR, "model", "encoder.pkl")
 LB_PATH = os.path.join(FILE_DIR, "model", "lb.pkl")
 
-# Load model and encoders
-with open(MODEL_PATH, "rb") as f:
-    model = pickle.load(f)
+# Lazy Load model and encoders
+model = None
+encoder = None
+lb = None
 
-with open(ENCODER_PATH, "rb") as f:
-    encoder = pickle.load(f)
 
-with open(LB_PATH, "rb") as f:
-    lb = pickle.load(f)
+def load_artifacts():
+    """
+    Loads model artifacts only once, on first use.
+    Prevents import-time loading (which breaks CI) and
+    keeps inference fast by caching the loaded objects.
+    """
+    global model, encoder, lb
+
+    if model is None:
+        with open(MODEL_PATH, "rb") as f:
+            model = pickle.load(f)
+
+        with open(ENCODER_PATH, "rb") as f:
+            encoder = pickle.load(f)
+
+        with open(LB_PATH, "rb") as f:
+            lb = pickle.load(f)
 
 
 # Add pydantic class to prcess API input
@@ -89,6 +103,8 @@ def read_root() -> dict:
 
 @app.post("/predict")
 def predict(input_data: CensusInput) -> dict:
+
+    load_artifacts()
 
     # Convert Pydantic model -> DataFrame
     data = pd.DataFrame([{
