@@ -1,16 +1,20 @@
 # Script to train machine learning model.
 
 # Add the necessary imports for the starter code.
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import pickle
 
-from ml.data import process_data
-from ml.model import train_model, compute_model_metrics, inference, compute_slice_metrics
+from starter.starter.ml.data import process_data
+from starter.starter.ml.model import train_model, compute_model_metrics, inference, compute_slice_metrics
 
 # Add code to load in the data.
 # Load cleaned census data
-data = pd.read_csv("../data/census.csv")
+FILE_DIR = os.path.dirname(__file__)
+DATA_PATH = os.path.join(FILE_DIR, "..", "data", "census.csv")
+
+data = pd.read_csv(DATA_PATH)
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 # Data splitting
@@ -52,14 +56,27 @@ preds = inference(model, X_test)
 # Evaluation metrics
 precision, recall, fbeta = compute_model_metrics(y_test, preds)
 
-with open("../model/model.pkl", "wb") as f:
+# resolve paths so saving can run with consistency
+FILE_DIR = os.path.dirname(__file__)
+MODEL_DIR = os.path.join(FILE_DIR, "..", "model")
+os.makedirs(MODEL_DIR, exist_ok=True)
+
+MODEL_PATH = os.path.join(MODEL_DIR, "model.pkl")
+
+with open(MODEL_PATH, "wb") as f:
     pickle.dump(model, f)
 
-with open("../model/encoder.pkl", "wb") as f:
+ENCODER_PATH = os.path.join(MODEL_DIR, "encoder.pkl")
+
+with open(ENCODER_PATH, "wb") as f:
     pickle.dump(encoder, f)
 
-with open("../model/lb.pkl", "wb") as f:
+LB_PATH = os.path.join(MODEL_DIR, "lb.pkl")
+
+with open(LB_PATH, "wb") as f:
     pickle.dump(lb, f)
+
+SLICE_PATH = os.path.join(MODEL_DIR, "slice_output.txt")
 
 compute_slice_metrics(
     test,
@@ -67,5 +84,5 @@ compute_slice_metrics(
     model=model,
     encoder=encoder,
     lb=lb,
-    output_path="../model/slice_output.txt"
+    output_path=SLICE_PATH
 )

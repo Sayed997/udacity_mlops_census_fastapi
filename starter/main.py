@@ -4,19 +4,25 @@ from pydantic import BaseModel, Field
 import pickle
 import pandas as pd
 import numpy as np
+import os
 
-from starter.ml.data import process_data
-from starter.ml.model import inference
+from starter.starter.ml.data import process_data
+from starter.starter.ml.model import inference
 
+# resolve path issues for consistency
+FILE_DIR = os.path.dirname(__file__)
+MODEL_PATH = os.path.join(FILE_DIR, "model", "model.pkl")
+ENCODER_PATH = os.path.join(FILE_DIR, "model", "encoder.pkl")
+LB_PATH = os.path.join(FILE_DIR, "model", "lb.pkl")
 
 # Load model and encoders
-with open("model/model.pkl", "rb") as f:
+with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
 
-with open("model/encoder.pkl", "rb") as f:
+with open(ENCODER_PATH, "rb") as f:
     encoder = pickle.load(f)
 
-with open("model/lb.pkl", "rb") as f:
+with open(LB_PATH, "rb") as f:
     lb = pickle.load(f)
 
 
