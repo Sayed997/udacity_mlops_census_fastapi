@@ -40,7 +40,7 @@ The app includes:
  - Run from the project root
  `pytest -q`
 
-## Model Card located at starter/mode_card.md
+## Model Card located at starter/model_card.md
 
 --------------------------------------
 
