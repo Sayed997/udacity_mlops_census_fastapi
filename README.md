@@ -38,9 +38,15 @@ The app includes:
 
 **Run Tests (test_main.py and test_model.py located at starter/**
  - Run from the project root
+ - To handle Githubs file size restrictions we had to bypass model loading for tests and setup a deterministic scenario.
+
  `pytest -q`
 
 ## Model Card located at starter/model_card.md
+
+## Output of compute_slice_metrics function located at starter model/slice_ouput.txt
+
+## continuous_integration.png file located under starter/screenshots folder
 
 --------------------------------------
 
