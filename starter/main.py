@@ -29,9 +29,9 @@ lb = None
 
 
 def download_if_missing(url, path):
-    """ 
-        downloads files from S3 to use in deployment
-        do nothing if running locally
+    """
+    downloads files from S3 to use in deployment
+    do nothing if running locally
     """
     if not os.path.exists(path):
         print(f"Downloading {path} from {url}...")
