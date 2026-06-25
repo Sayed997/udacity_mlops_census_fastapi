@@ -5,9 +5,16 @@ import pickle
 import pandas as pd
 import numpy as np
 import os
+import requests
 
 from starter.starter.ml.data import process_data
 from starter.starter.ml.model import inference
+
+# add S3 bucket URLs for Render deployment (storage of model files in S3)
+# URLs saved as env variables in Render
+MODEL_URL = os.getenv("MODEL_URL")
+ENCODER_URL = os.getenv("ENCODER_URL")
+LB_URL = os.getenv("LB_URL")
 
 # resolve path issues for consistency
 FILE_DIR = os.path.dirname(__file__)
@@ -21,12 +28,30 @@ encoder = None
 lb = None
 
 
+def download_if_missing(url, path):
+    """ 
+        downloads files from S3 to use in deployment
+        do nothing if running locally
+    """
+    if not os.path.exists(path):
+        print(f"Downloading {path} from {url}...")
+        r = requests.get(url)
+        r.raise_for_status()
+        with open(path, "wb") as f:
+            f.write(r.content)
+
+
 def load_artifacts():
     """
     Loads model artifacts only once, on first use.
     Prevents import-time loading (which breaks CI) and
     keeps inference fast by caching the loaded objects.
     """
+    # Will download paths and files if deployed
+    download_if_missing(MODEL_URL, MODEL_PATH)
+    download_if_missing(ENCODER_URL, ENCODER_PATH)
+    download_if_missing(LB_URL, LB_PATH)
+
     global model, encoder, lb
 
     # For tests, we will not load model explicitly. Model files too large for Github
