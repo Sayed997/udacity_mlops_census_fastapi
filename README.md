@@ -42,15 +42,23 @@ The app includes:
 
  `pytest -q`
 
-## Model Card located at starter/model_card.md
+### Model Card located at starter/model_card.md
 
-## Output of compute_slice_metrics function located at starter model/slice_ouput.txt
+### Output of compute_slice_metrics function located at starter model/slice_ouput.txt
 
-## continuous_integration.png file located under starter/screenshots folder
+### continuous_integration.png file located under starter/screenshots folder
+
+### Render APP Deployment
+ - Files stored in public S3 bucket, used this strategy for consistency and simplicity
+ - URL for App: https://census-income-api-egrx.onrender.com
+ - run `python test_api_tst.py` to test predict endpoint
+
+### Github Repo URL
+  - https://github.com/Sayed997/udacity_mlops_census_fastapi
 
 --------------------------------------
 
-## Repositories
+# Repositories
 * Create a directory for the project and initialize git.
     * As you work on the code, continually commit changes. Trained models you want to use in production must be committed to GitHub.
 * Connect your local git repo to GitHub.
