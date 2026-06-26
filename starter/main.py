@@ -87,8 +87,8 @@ class CensusInput(BaseModel):
     native_country: str = Field(alias="native-country")
 
     class Config:
-        allow_population_by_field_name = True
-        schema_extra = {
+        populate_by_name = True
+        json_schema_extra = {
             "example": {
                 "age": 39,
                 "fnlgt": 2147,
