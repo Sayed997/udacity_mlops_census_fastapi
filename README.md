@@ -48,13 +48,9 @@ The app includes:
 
 ### continuous_integration.png file located under starter/screenshots folder
 
-### Render APP Deployment
+### Render APP Deployment !(Web App NOT in service anymore was used for project review purposes)
  - Files stored in public S3 bucket, used this strategy for consistency and simplicity
- - URL for App: https://census-income-api-egrx.onrender.com
  - run `python test_api_tst.py` to test predict endpoint
-
-### Github Repo URL
-  - https://github.com/Sayed997/udacity_mlops_census_fastapi
 
 --------------------------------------
 
